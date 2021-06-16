@@ -1,0 +1,10 @@
+<mat-list *ngFor="let realEstate of realEstates; let lastItem = last;">
+  <mat-list-item>
+    <!--<mat-icon mat-list-icon *ngIf="realEstate.type === 0">apartment</mat-icon><mat-icon mat-list-icon *ngIf="realEstate.type === 1">house</mat-icon>-->
+    <mat-icon mat-list-icon>{{icon[realEstate.type]}}</mat-icon>
+    <h1 mat-line>{{realEstate.name}}</h1>
+    <p mat-line>Cena: {{realEstate.price}}</p>
+    <p mat-line>Adresa: {{realEstate.address}}</p>
+  </mat-list-item>
+  <mat-divider *ngIf="!lastItem"></mat-divider>
+</mat-list>
