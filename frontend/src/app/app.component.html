@@ -1,9 +1,12 @@
 <mat-menu #appMenu="matMenu">
-  <button mat-menu-item>Settings</button>
-  <button mat-menu-item (click)="loggedIn=false;" routerLink="">Log out</button>
+  <button *ngIf="isAdministrator" mat-menu-item routerLink="admin">Admin</button>
+  <button *ngIf="isEmployee" mat-menu-item routerLink="agent">Agent</button>
+  <button mat-menu-item routerLink="profile">Profile</button>
+  <button mat-menu-item (click)="logout();" routerLink="">Log out</button>
 </mat-menu>
 <mat-toolbar color="primary">
   <span><button mat-button disableRipple routerLink="">
+    <mat-icon class="mat-18">home</mat-icon>
     Agencija
   </button>
   </span>
@@ -14,7 +17,7 @@
   <button *ngIf="loggedIn" mat-icon-button [mat-menu-trigger-for]="appMenu">
     <mat-icon>menu</mat-icon>
   </button>
-  <button class="raised-button" *ngIf="!loggedIn" mat-flat-button (click)="loggedIn=true" routerLink="login">Log In</button>
-  <button class="raised-button" *ngIf="!loggedIn" mat-flat-button>Register</button>
+  <button class="raised-button" *ngIf="!loggedIn" mat-flat-button routerLink="login">Log In</button>
+  <button class="raised-button" *ngIf="!loggedIn" mat-flat-button routerLink="register">Register</button>
 </mat-toolbar>
 <router-outlet></router-outlet>

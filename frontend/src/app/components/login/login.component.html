@@ -8,7 +8,7 @@
     <mat-form-field class="login-form-field">
       <mat-label>Password</mat-label>
       <input matInput type="password" name="password" [(ngModel)]="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$">
-      <mat-error>Password format is wrong. Password contains one lowercase, one upercase, one digit and one special character, and 8-24 characters total.</mat-error>
+      <mat-error *ngIf="wrongPasswordFormat">Password format is wrong. Password contains one lowercase, one upercase, one digit and one special character, and 8-24 characters total.</mat-error>
     </mat-form-field>
 
     <button mat-raised-button (click)="login()">Log In</button>

@@ -11,6 +11,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AgentComponent } from './components/agent/agent.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
+import { ErrorComponent } from './components/error/error.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { RegisterComponent } from './components/register/register.component';
     LoginComponent,
     AdminComponent,
     AgentComponent,
-    RegisterComponent
+    RegisterComponent,
+    ErrorComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
