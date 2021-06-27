@@ -1,10 +1,12 @@
+import { UserType } from "../enums/userTypes";
+
 export class User{
     username: String;
     password: String;
-    name: String;
+    firstname: String;
     lastname: String;
     email: String;
-    type: String;
+    type: UserType;
     profile_picture: String;
     city: String;
     country: String;

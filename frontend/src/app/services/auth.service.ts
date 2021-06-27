@@ -51,7 +51,10 @@ export class AuthService {
         this.loggedin$.next(true);
         localStorage.setItem("loggedin","true");
         localStorage.setItem("user",JSON.stringify(user));
-    }});    
+    } else{
+      this.loggedin$.next(false)
+    }
+  });    
     
 
     //return this.http.post(url, data);
@@ -65,13 +68,13 @@ export class AuthService {
   }
 
   isAdmin():boolean{
-    console.log("isAdmin")
+    //console.log("isAdmin")
     //console.log(this.user$.value)
     if(this.user$.value?.type == "Admin"){
-      console.log("isAdmintrue")
+      //console.log("isAdmintrue")
       return true;
     } else {
-      console.log("isAdminfalse")
+      //console.log("isAdminfalse")
       return false;
     }
   }

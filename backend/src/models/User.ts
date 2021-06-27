@@ -10,7 +10,7 @@ let User = new Schema(
         password: {
             type: String
         },
-        name: {
+        firstname: {
             type: String
         },
         lastname:{

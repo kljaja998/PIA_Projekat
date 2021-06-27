@@ -1,1 +1,24 @@
-<p>admin works!</p>
+<div class="unApprovedUsersDiv">
+    <mat-list>
+        <div mat-subheader>Unapproved users</div>
+        <mat-list-item *ngFor="let user of unApprovedUsers; let lastItem = last;">
+            <mat-icon matListIcon class="mat-18">person</mat-icon>
+            <h1 mat-line>{{user.firstname}} {{user.lastname}}</h1>
+            <p mat-line>{{user.username}}</p>
+            <p mat-line>{{user.email}}</p>
+            <button mat-icon-button (click)="approveUser(user)">
+                <mat-icon class="mat-24">done</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteUser(user)">
+                <mat-icon class="mat-24">cancel</mat-icon>
+            </button>
+            <mat-divider *ngIf="!lastItem"></mat-divider>
+        </mat-list-item>
+    </mat-list>
+</div>
+<div class="addUserDiv">
+    <div mat-subheader>Add user</div>
+    <div>
+        <app-register></app-register>
+    </div>
+</div>

@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         //console.log("Admin guard can activate")
         //let user = this.authService.user$.value;*/
-        console.log(route.url)
+        //console.log(route.url)
         switch(route.url[0].path){
             case RoutePaths.Admin:{
                 if (this.authService.isAdmin()){

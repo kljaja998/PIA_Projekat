@@ -25,8 +25,10 @@ export class AppComponent {
     this.authService.loggedin$
         .subscribe(data => {
           this.loggedIn = data;
-          this.isAdministrator = this.isAdmin()
-          this.isEmployee = this.isAdministrator || this.isAgent()
+          if(this.loggedIn){
+            this.isAdministrator = this.isAdmin()
+            this.isEmployee = this.isAdministrator || this.isAgent()            
+          }
           /*if(this.loggedIn)
             this.loginroute();
           /*else
