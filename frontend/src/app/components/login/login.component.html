@@ -1,17 +1,22 @@
 <div class="login-div">
-  <form class="login-form">
-    <mat-form-field class="login-form-field">
-      <mat-label>E-mail</mat-label>
-      <input matInput type="text" placeholder="ex. pera@email.com" [(ngModel)]="username" name="username" required>
-    </mat-form-field>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <form class="login-form">
+      <mat-form-field class="login-form-field">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" placeholder="" [(ngModel)]="username" name="username" required>
+      </mat-form-field>
 
-    <mat-form-field class="login-form-field">
-      <mat-label>Password</mat-label>
-      <input matInput type="password" name="password" [(ngModel)]="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$" required>
-      <mat-error *ngIf="wrongPasswordFormat">Password format is wrong. Password contains one lowercase, one upercase, one digit and one special character, and 8-24 characters total.</mat-error>
-      <mat-error *ngIf="wrongLogin">Login information is wrong.</mat-error>
-    </mat-form-field>
+      <mat-form-field class="login-form-field">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" [(ngModel)]="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$" required>
+        <mat-error *ngIf="wrongPasswordFormat">Password format is wrong. Password contains one lowercase, one upercase, one digit and one special character, and 8-24 characters total.</mat-error>
+        <mat-error *ngIf="wrongLogin">Login information is wrong.</mat-error>
+      </mat-form-field>
 
-    <button mat-raised-button (click)="login()">Log In</button>
-  </form>
+      <button mat-raised-button (click)="login()">Log In</button>
+    </form>
+</mat-card>
 </div>

@@ -1,5 +1,8 @@
 <div class="register-div">
   <mat-card>
+    <mat-card-header>
+      <mat-card-title>Register user</mat-card-title>
+    </mat-card-header>
     <form [formGroup]="registerForm" class="register-form">
       <mat-form-field class="register-form-field">
         <mat-label>E-mail</mat-label>
@@ -78,7 +81,7 @@
 
       <input [hidden]="true" id="input-file-id" type="file" (change)="onFileSelect($event)"/>
       <label for="input-file-id" class="profile-file-input-label"><button color=accent mat-raised-button class="profile-file-input-button">
-        Profile picture
+        Add profile picture
       </button></label>
       
       <!--<mat-form-field class="register-form-field">

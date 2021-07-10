@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AddPropertyComponent } from './components/add-property/add-property.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     AgentComponent,
     RegisterComponent,
     ErrorComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddPropertyComponent
   ],
   imports: [
     BrowserModule,

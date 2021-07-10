@@ -1,5 +1,6 @@
 export enum ApiPaths {
     Auth = "/auth",
     User = "/user",
-    Messaging = "/messaging"
+    Messaging = "/messaging",
+    Settings = "/settings"
 }

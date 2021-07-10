@@ -9,7 +9,7 @@ export class RealEstatesService {
 
   constructor() { }
 
-  getAllProperties():RealEstate[]{
+  getAllProperties(){
     const allProperties: RealEstate[] = [
       {type : 0, name : "Trosobni stan", address : "Beograd", price : 134000},
       {type : 1, name : "Kuca sa dvoristem", address : "Novi sad", price : 84000},
@@ -17,4 +17,6 @@ export class RealEstatesService {
     ]
     return allProperties;
   }
+
+  
 }

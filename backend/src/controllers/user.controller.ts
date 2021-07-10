@@ -2,14 +2,19 @@ import {json} from 'express'
 import express from 'express'
 import fileUpload, { FileArray, UploadedFile } from 'express-fileupload';
 import User from '../models/User';
+import fs from "fs"
 
 export class UserController{
-    addUser = (req:express.Request, res:express.Response)=>{
+    /*addUser = (req:express.Request, res:express.Response)=>{
 
-    }
+    }*/
 
     
+    
     registerUser = (req:express.Request, res:express.Response)=>{
+        if(req.body.username=="agencija"){
+            res.json({message:"error"})
+        }
         //const data = req.body.data//JSON.parse(req.body.data)
         /*console.log("Register user!")
         if(req.files)
@@ -48,8 +53,12 @@ export class UserController{
                     //TODO: Skini cast "as Uploaded File", pretvori u ovu proveru iz blok komentara ispod
                     /*
                     function getFooName(foo: Foo | Array<Foo>): Foo['name'] {
-                        return (Array.isArray(foo) ? foo : [foo]).name
-                    } 
+                        return (Array.isArray(foo) ? foo : [foo])[0].name
+                    } ili
+                    function getFooName(foo: Foo | Array<Foo>): Foo['name'] {
+                        const [ { name } ] = Array.isArray(foo) ? foo : [foo];
+                        return name
+                    }
                     */
                     let profilePicture = req.files.profilePicture as UploadedFile
                     let picturePath = __dirname + `\\..\\assets\\profiles\\${req.body.username}\\${profilePicture.name}`
@@ -118,7 +127,11 @@ export class UserController{
     deleteUser = (req:express.Request, res:express.Response)=>{
         let username = req.body.username;
         console.log("delete : "+username)
-
+        let path = __dirname + `\\..\\assets\\profiles\\${req.body.username}\\`
+        fs.rm(path,{force:true,recursive:true},(err)=>{
+            if(err)
+                console.log(err)
+        })
         User.collection.deleteOne({'username':username})
         res.json({message:"ok"})
     }
@@ -140,8 +153,11 @@ export class UserController{
     }
 
     usernameCheck = (req:express.Request, res:express.Response)=>{
-        let usernameLog = req.body.username;
-        console.log("username check: "+ usernameLog)
+        /*let usernameLog = req.body.username;
+        console.log("username check: "+ usernameLog)*/
+        if(req.body.username == "agencija"){
+            res.json({message:"duplicate username"})
+        }
         User.findOne({username:req.body.username}, (err,result)=>{
             if(err) console.log(err)
             if(result)

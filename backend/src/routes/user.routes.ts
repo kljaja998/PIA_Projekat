@@ -3,9 +3,9 @@ import { UserController } from "../controllers/user.controller";
 
 const userRouter = express.Router();
 
-userRouter.route("/addUser").post(
+/*userRouter.route("/addUser").post(
     (req,res)=> new UserController().addUser(req,res)
-)
+)*/
 userRouter.route("/approveUser").post(
     (req,res)=> new UserController().approveUser(req,res)
 )

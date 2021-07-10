@@ -1,10 +1,10 @@
 .login-div{
   display: flex;
   justify-content: center;
+  padding: 3rem;
 }
 
 .login-form{
-  padding-top: 3rem;
   min-width: 150px;
   max-width: 350px;
   width: 80%;

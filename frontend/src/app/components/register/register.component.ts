@@ -15,7 +15,9 @@ export class RegisterComponent implements OnInit {
 
   usertype = UserType;
 
-  constructor(private usersService: UsersService, private fb: FormBuilder, private authService: AuthService) { }
+  constructor(private usersService: UsersService,
+              private fb: FormBuilder,
+              private authService: AuthService) { }
 
   registerForm = this.fb.group({
     username: ["", {

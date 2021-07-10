@@ -1,5 +1,11 @@
 .addUserDiv{
     display: flex;
     justify-content: center;
-    padding: 3rem;
+}
+.changeSettingsDiv{
+    display: flex;
+    justify-content: center;
+}
+.settings-form-field{
+    width: 100%;
 }

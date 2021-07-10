@@ -7,6 +7,7 @@ import authRouter from './routes/auth.routes';
 import { environment } from './environments/environment';
 import userRouter from './routes/user.routes';
 import fileUpload from 'express-fileupload';
+import settingsRouter from './routes/settings.routes';
 
 
 
@@ -31,6 +32,7 @@ conn.once('open', ()=>{
 const router = express.Router();
 router.use('/auth', authRouter);
 router.use('/user', userRouter)
+router.use('/settings', settingsRouter )
 
 
 app.use('/',router)
