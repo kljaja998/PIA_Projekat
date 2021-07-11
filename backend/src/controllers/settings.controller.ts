@@ -21,15 +21,27 @@ export class SettingsController{
     setRentPercentage = (req:Request,res:Response)=>{
         const name = "rentPercentage"
         const value = req.body.value
+        //console.log("rentPercentage: "+value)
         Setting.updateOne({"name":name},
-        {$set:{"value":true}})
+        {$set:{"value":Number(value)}},(err,obj)=>{
+            if(err)
+                console.log(err)
+            /*else
+                console.log(obj)*/
+        })
         res.json({message:"success"})
     }
     setBuyPercentage = (req:Request,res:Response)=>{
         const name = "buyPercentage"
         const value = req.body.value
+        //console.log("buyPercentage: "+value)
         Setting.updateOne({"name":name},
-        {$set:{"value":true}})
+        {$set:{"value":Number(value)}},(err,obj)=>{
+            if(err)
+                console.log(err)
+            /*else
+                console.log(obj)*/
+        })
         res.json({message:"success"})
     }
 

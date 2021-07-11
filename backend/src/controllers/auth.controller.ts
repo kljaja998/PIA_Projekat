@@ -22,7 +22,7 @@ export class AuthController{
             if(err) console.log(err);
             else{
                 if(user){
-
+                    console.log(user.id)
                 }
                 //TODO: Send auth token
                 res.json(user);

@@ -1,0 +1,25 @@
+.add-property-div{
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+  }
+
+.add-property-form{
+    min-width: 250px;
+    max-width: 350px;
+    width: 80%;
+}
+
+.add-property-form-field{
+    width: 100%;
+}
+
+.media-input-label{
+    cursor: pointer;
+    display: block;
+}
+
+.media-input-button{
+    pointer-events: none;
+    margin-bottom: 1rem;
+}

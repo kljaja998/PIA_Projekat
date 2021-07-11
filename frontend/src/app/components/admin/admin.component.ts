@@ -78,7 +78,8 @@ export class AdminComponent implements OnInit {
   }
 
   setBuyPercentage(){
-    let value
+    let value = this.buyControl.value
+    console.log("setBuyPercentage"+value)
     this.settingsService.setBuyPercentage(Number(value)).subscribe(res=>{
       if(res){
         this.buyPercentage.value = Number(value)
@@ -86,8 +87,9 @@ export class AdminComponent implements OnInit {
     })
   }
   setRentPercentage(){
-    let value
-    this.settingsService.setRentPercentage(value).subscribe(res=>{
+    let value = this.rentControl.value
+    console.log("setRentPercentage"+value)
+    this.settingsService.setRentPercentage(Number(value)).subscribe(res=>{
       if(res){
         this.rentPercentage.value = Number(value)
       } 

@@ -9,6 +9,7 @@ import { RealEstatesComponent } from './components/real-estates/real-estates.com
 import { AuthGuard } from './guards/auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AddPropertyComponent } from './components/add-property/add-property.component';
 
 
 const routes: Routes = [
@@ -17,8 +18,9 @@ const routes: Routes = [
   {path : RoutePaths.Agent, component : AgentComponent, canActivate:[AuthGuard]},
   {path : RoutePaths.Profile, component: ProfileComponent, canActivate:[AuthGuard]},
   {path : RoutePaths.Register, component: RegisterComponent},
+  {path : RoutePaths.AddProperty, component: AddPropertyComponent, canActivate:[AuthGuard]},
   {path : RoutePaths.default, component : RealEstatesComponent},
-  {path : RoutePaths.wildcard ,component:ErrorComponent}
+  {path : RoutePaths.wildcard ,component : ErrorComponent}
 ];
 
 @NgModule({

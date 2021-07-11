@@ -14,6 +14,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddPropertyComponent } from './components/add-property/add-property.component';
+import { PropertyComponent } from './components/property/property.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AddPropertyComponent } from './components/add-property/add-property.com
     RegisterComponent,
     ErrorComponent,
     ProfileComponent,
-    AddPropertyComponent
+    AddPropertyComponent,
+    PropertyComponent
   ],
   imports: [
     BrowserModule,

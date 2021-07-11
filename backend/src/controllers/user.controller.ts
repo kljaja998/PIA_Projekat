@@ -1,4 +1,3 @@
-import {json} from 'express'
 import express from 'express'
 import fileUpload, { FileArray, UploadedFile } from 'express-fileupload';
 import User from '../models/User';

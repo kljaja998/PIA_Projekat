@@ -6,5 +6,6 @@ export enum RoutePaths{
     Register = "register",
     Profile = "profile",
     default = "",
-    wildcard = "**"
+    wildcard = "**",
+    AddProperty = "add-property"
 }

@@ -44,7 +44,7 @@ export class SettingsService {
       tap(response=> {
         if(response["message"]=="success") 
         this.buyPercentage$
-        .next({name:"rentPercentage",value:value})
+        .next({name:"buyPercentage",value:value})
       }),
       map(response=> 
         response["message"]=="success"?true:false

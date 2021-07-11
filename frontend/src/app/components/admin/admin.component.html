@@ -37,7 +37,7 @@
                     <mat-form-field class="settings-form-field">
                         <mat-label>Rent percentage</mat-label>
                         <input matInput type="number" [formControl]="rentControl">
-                        <button matSuffix mat-icon-button (click)="true">
+                        <button matSuffix mat-icon-button (click)="setRentPercentage()">
                             <mat-icon class="mat-18">done</mat-icon>
                         </button>
                         <mat-error ></mat-error>
@@ -46,7 +46,7 @@
                     <mat-form-field class="settings-form-field">
                         <mat-label>Buy percentage</mat-label>
                         <input matInput type="number" [formControl]="buyControl">
-                        <button matSuffix mat-icon-button (click)="true">
+                        <button matSuffix mat-icon-button (click)="setBuyPercentage()">
                             <mat-icon class="mat-18">done</mat-icon>
                         </button>
                     </mat-form-field>
