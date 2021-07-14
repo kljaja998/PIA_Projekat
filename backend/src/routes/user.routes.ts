@@ -24,5 +24,9 @@ userRouter.route("/checkUsername").post(
 userRouter.route("/getUnapprovedUsers").get(
     (req,res)=> new UserController().getUnapprovedUsers(req,res)
 )
+userRouter.route("/getApprovedUsers").get(
+    (req,res)=> new UserController().getApprovedUsers(req,res)
+)
+
 
 export default userRouter

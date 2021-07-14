@@ -30,6 +30,11 @@ export class UsersService {
     const url = `${this.baseUrl}${ApiPaths.User}/getUnapprovedUsers`
     return this.http.get(url)
   }
+  getApprovedUsers(){
+
+    const url = `${this.baseUrl}${ApiPaths.User}/getApprovedUsers`
+    return this.http.get(url)
+  }
 
   approveUser(username){
     let data={

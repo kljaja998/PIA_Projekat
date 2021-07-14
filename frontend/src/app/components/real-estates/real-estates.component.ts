@@ -20,6 +20,11 @@ export class RealEstatesComponent implements OnInit {
 
   realEstates! : RealEstate[];
   icon!:string[];
+  searchedRealEstate : RealEstate[]
+  cityCheckString: string
+  minPriceString: string
+  maxPriceString: string
+
   assetsLink = `${environment.baseUrl}${ApiPaths.Assets}`
 
   ngOnInit(): void {
@@ -47,6 +52,14 @@ export class RealEstatesComponent implements OnInit {
     let now = Date.now()
     let date = new Date(now)
     console.log(date)
+  }
+
+  search(){
+    this.searchedRealEstate = this.realEstates.filter(realEstate=>{
+      (this.cityCheckString==="" || this.cityCheckString===realEstate.city) &&
+      (this.minPriceString==="" || Number(this.minPriceString)<realEstate.price) &&
+      (this.maxPriceString==="" || Number(this.maxPriceString)<realEstate.price)
+    })
   }
 
 }

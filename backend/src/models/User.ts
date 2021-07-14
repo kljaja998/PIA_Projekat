@@ -36,6 +36,9 @@ let User = new Schema(
         },
         approved: {
             type: Boolean
+        },
+        promoted: {
+            type: Boolean
         }
     }
 )

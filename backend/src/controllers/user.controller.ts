@@ -173,4 +173,44 @@ export class UserController{
         })
     }
 
+    getApprovedUsers = (req:express.Request, res:express.Response)=>{
+        User.find({approved:"true"},(err,users)=>{
+            if(err) console.log(err)
+            else res.json(users)
+        })
+    }
+
+
+    blockUser = (req:express.Request, res:express.Response)=>{
+        const blocker = req.body.blocker
+        const user = req.body.user
+        User.updateOne(
+            {username:blocker},
+            {$addToSet: {blocked_users:user}})
+    }
+
+    isBlockedCheck = (req:express.Request, res:express.Response)=>{
+        const user1 = req.body.user1
+        const user2 = req.body.user2
+        User.findOne(
+            {$or:[
+                {$and:[
+                    {username:user1},
+                    {blocked_users:user2}
+                ]},
+                {$and:[
+                    {username:user2},
+                    {blocked_users:user1}
+                ]}
+            ]},
+            (err,user)=>{
+                if(err) console.log(err)
+                else if (user) {
+                    res.json({message:"blocked"})
+                } else {
+                    res.json({message:"not blocked"})
+            }
+        })
+    }
+
 }

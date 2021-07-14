@@ -22,6 +22,7 @@ export class AdminComponent implements OnInit {
   rentControl = new FormControl()
   buyControl = new FormControl()
   unApprovedUsers: User[];
+  approvedUsers: User[];
 
   constructor(private usersService: UsersService, 
     private settingsService: SettingsService,
@@ -31,6 +32,9 @@ export class AdminComponent implements OnInit {
     this.usersService.getUnapprovedUsers().subscribe((data:User[])=>{
       console.log(data)
       this.unApprovedUsers = data?data:User[0]
+    })
+    this.usersService.getApprovedUsers().subscribe((data:User[])=>{
+      this.approvedUsers = data
     })
     this.settingsService.getBuyPercentage()
     this.settingsService.getRentPercentage()

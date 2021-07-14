@@ -14,6 +14,7 @@ import { MatTabsModule } from "@angular/material/tabs"
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatCarouselModule } from 'ng-mat-carousel';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -33,7 +34,7 @@ const MaterialModules = [
   MatBadgeModule,
   MatCarouselModule,
   MatGridListModule,
-  
+  ChartsModule  
 ]
 
 @NgModule({
