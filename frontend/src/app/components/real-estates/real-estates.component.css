@@ -1,3 +1,11 @@
-.mat-list-item-icon{
+/*.mat-list-item-icon{
   padding-right: 2rem;
+}
+*/
+.unpromoted-properties{
+  padding: 16px;
+}
+
+.unpromoted-property-card{
+  width: 400px;
 }

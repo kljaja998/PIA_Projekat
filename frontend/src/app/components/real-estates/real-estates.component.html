@@ -1,10 +1,43 @@
-<mat-list *ngFor="let realEstate of realEstates; let lastItem = last;">
-  <mat-list-item>
-    <!--<mat-icon mat-list-icon *ngIf="realEstate.type === 0">apartment</mat-icon><mat-icon mat-list-icon *ngIf="realEstate.type === 1">house</mat-icon>-->
-    <mat-icon mat-list-icon>{{icon[realEstate.type]}}</mat-icon>
-    <h1 mat-line>{{realEstate.name}}</h1>
-    <p mat-line>Cena: {{realEstate.price}}</p>
-    <p mat-line>Adresa: {{realEstate.address}}</p>
-  </mat-list-item>
-  <mat-divider *ngIf="!lastItem"></mat-divider>
-</mat-list>
+<div class="promoted-properties">
+
+</div>
+<div class="unpromoted-properties">
+  <div class="unpromoted-property" *ngFor="let property of realEstates">
+    <mat-card class="unpromoted-property-card">
+        <mat-card-header>
+            <mat-card-title>{{property.name}}, {{property.price}}€</mat-card-title>
+            <mat-card-subtitle>{{property.municipality}}, {{property.city}}</mat-card-subtitle>
+        </mat-card-header>
+        <img matCardImage  [src]="property.randomImageLink">
+        <mat-card-content>
+          <p mat-line>{{property.category}}</p>
+          <p mat-line>{{property.room_no}}</p>
+          <p mat-line>{{property.area+"m\u00B2"}}</p>
+        </mat-card-content>
+        <mat-card-actions align="start">
+            <button mat-button (click)="goToProperty(property._id)">Pogledaj detalje</button>
+        </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<!--
+  <button mat-raised-button (click)="test()">Test</button>
+-->
+
+
+<!--
+  <mat-list >
+    <div *ngFor="let realEstate of realEstates; let lastItem = last;">
+      <mat-list-item>
+        <mat-icon mat-list-icon *ngIf="realEstate.type === 0">apartment</mat-icon><mat-icon mat-list-icon *ngIf="realEstate.type === 1">house</mat-icon>
+        <mat-icon mat-list-icon>{{icon[realEstate.type]}}</mat-icon>
+        <h1 mat-line>{{realEstate.name}}</h1>
+        <p mat-line>Cena: {{realEstate.price}}</p>
+        <p mat-line>Adresa: {{realEstate.address}}</p>
+        <button mat-raised-button (click)="goToProperty(realEstate._id)">Go to property</button>
+      </mat-list-item>
+      <mat-divider *ngIf="!lastItem"></mat-divider>
+    </div>
+  </mat-list>
+-->

@@ -26,9 +26,13 @@ export class MessagesController{
             {$push: {
                 messages: {
                     sender : username,
-                    message : message
+                    message : message,
+                    time : Date.now()
                 }
-            }},{
+            },
+             $set:{
+                 isArchived: false
+             }},{
                 upsert:true
             },
             (err,doc)=>{
@@ -36,5 +40,10 @@ export class MessagesController{
                     console.log(err)
             })
     }
-
+    archiveThread = (req:express.Request, res:express.Response)=>{
+        let user1 = req.body.user1
+        let user2 = req.body.user2
+        MessageThread.updateOne({$and:[{"user1":user1},{"user2":user2}]},
+            {$set:{"isArchived":true}})
+    }
 }

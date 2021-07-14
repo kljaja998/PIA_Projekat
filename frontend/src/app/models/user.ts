@@ -10,6 +10,6 @@ export class User{
     profile_picture: String;
     city: String;
     country: String;
-    properties: Array<Object>
+    blocked_users: Array<Object>
     approved: Boolean;
 }

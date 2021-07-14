@@ -4,6 +4,9 @@ const Schema = mongoose.Schema
 
 let RealEstate = new Schema(
     {
+        _id:{
+            type:Schema.Types.ObjectId
+        },
         name:{
             type:String
         },
@@ -45,6 +48,12 @@ let RealEstate = new Schema(
         },
         owner:{
             type:String
+        },
+        isApproved:{
+            type:Boolean
+        },
+        isPromoted:{
+            type:Boolean
         }
     }
 )

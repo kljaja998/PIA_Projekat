@@ -4,6 +4,7 @@ import RealEstate from '../models/RealEstate'
 
 export class RealEstatesController{
     addRealEstate = (req:express.Request,res:express.Response)=>{
+        let isApproved = req.body.owner == 'agencija' ? true : false
         let newRealEstate = new RealEstate({
             name:req.body.name,
             city:req.body.city,
@@ -18,7 +19,8 @@ export class RealEstatesController{
             gallery:[],
             sale:req.body.sale,
             price:req.body.price,
-            owner:req.body.owner
+            owner:req.body.owner,
+            isApproved: isApproved
         })
         newRealEstate.save().then((doc)=>{
             if(doc){
@@ -54,5 +56,24 @@ export class RealEstatesController{
             else
                 res.json(docs)
         })
+    }
+    getUnapprovedRealEstate = (req:express.Request,res:express.Response)=>{
+        RealEstate.find({isApproved:false},(err,properties)=>{
+            if(err) console.log(err)
+            else res.json(properties)
+        })
+    }
+    getApprovedRealEstate = (req:express.Request, res:express.Response)=>{
+        RealEstate.find({isApproved:true},(err,properties)=>{
+            if(err) console.log(err)
+            else res.json(properties)
+        })
+    }
+
+    approveRealEstate = (req:express.Request,res:express.Response)=>{
+        let id = req.body.id
+        RealEstate.collection.updateOne({'_id':id},
+        {$set:{"isApproved":true}})
+        res.json({message:"ok"})
     }
 }

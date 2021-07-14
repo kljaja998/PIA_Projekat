@@ -12,8 +12,12 @@ let MessageThread = new Schema(
         },
         messages:[{
             sender: String,
-            message: String
-        }]
+            message: String,
+            time: String
+        }],
+        isArchived:{
+            type: Boolean
+        }
     }
 )
 

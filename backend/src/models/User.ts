@@ -31,7 +31,7 @@ let User = new Schema(
         country: {
             type: String
         },
-        properties: {
+        blocked_users: {
             type: Array
         },
         approved: {
