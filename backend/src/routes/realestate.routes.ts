@@ -21,4 +21,11 @@ realEstateRouter.route('/getUnapprovedRealEstate').get(
     (req,res)=> new RealEstatesController().getUnapprovedRealEstate(req, res)
 )
 
+realEstateRouter.route('/approveRealEstate').post(
+    (req,res)=> new RealEstatesController().approveRealEstate(req, res)
+)
+realEstateRouter.route('/addRealEstate').post(
+    (req,res)=> new RealEstatesController().addRealEstate(req, res)
+)
+
 export default realEstateRouter;

@@ -7,5 +7,6 @@ export interface MessageThread{
         sender: String,
         message: String,
         time: String
-    }>
+    }>,
+    isArchived: boolean
 }

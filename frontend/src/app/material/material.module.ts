@@ -15,6 +15,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatCarouselModule } from 'ng-mat-carousel';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ChartsModule } from 'ng2-charts';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 
 
@@ -34,7 +36,8 @@ const MaterialModules = [
   MatBadgeModule,
   MatCarouselModule,
   MatGridListModule,
-  ChartsModule  
+  ChartsModule,
+  MatExpansionModule,
 ]
 
 @NgModule({

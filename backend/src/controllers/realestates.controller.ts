@@ -1,5 +1,6 @@
 import express from 'express'
 import { UploadedFile } from 'express-fileupload'
+import  fs  from 'fs'
 import RealEstate from '../models/RealEstate'
 
 export class RealEstatesController{
@@ -76,4 +77,30 @@ export class RealEstatesController{
         {$set:{"isApproved":true}})
         res.json({message:"ok"})
     }
+
+    promoteRealEstate = (req:express.Request,res:express.Response)=>{
+        let id = req.body.id
+        RealEstate.collection.updateOne({'_id':id},
+        {$set:{"isPromoted":true}})
+        res.json({message:"ok"})
+    }
+
+    unpromoteRealEstate = (req:express.Request,res:express.Response)=>{
+        let id = req.body.id
+        RealEstate.collection.updateOne({'_id':id},
+        {$set:{"isPromoted":false}})
+        res.json({message:"ok"})
+    }
+
+    deleteRealEstate = (req:express.Request,res:express.Response)=>{
+        let id = req.body.id
+        let path = __dirname + `\\..\\assets\\real_estates\\${id}\\`
+        fs.rm(path,{force:true,recursive:true},(err)=>{
+            if(err)
+            console.log(err)
+        })
+        RealEstate.collection.deleteOne({'_id':id})
+        res.json({message:"ok"})
+    }
+
 }

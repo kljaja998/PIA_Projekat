@@ -14,13 +14,6 @@ export class UserController{
         if(req.body.username=="agencija"){
             res.json({message:"error"})
         }
-        //const data = req.body.data//JSON.parse(req.body.data)
-        /*console.log("Register user!")
-        if(req.files)
-            console.log(req.files)
-        console.log(req.body)*/
-
-        //res.json({message:"ok"})
 
         User.findOne({
                 $or:[{
@@ -187,7 +180,17 @@ export class UserController{
         User.updateOne(
             {username:blocker},
             {$addToSet: {blocked_users:user}})
+        res.json({message:"ok"})            
     }
+    unblockUser = (req:express.Request, res:express.Response)=>{
+        const blocker = req.body.blocker
+        const user = req.body.user
+        User.updateOne(
+            {username:blocker},
+            {$pull: {blocked_users:user}})
+        res.json({message:"ok"})            
+    }
+
 
     isBlockedCheck = (req:express.Request, res:express.Response)=>{
         const user1 = req.body.user1

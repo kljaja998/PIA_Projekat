@@ -24,6 +24,7 @@ export class RealEstatesComponent implements OnInit {
   cityCheckString: string
   minPriceString: string
   maxPriceString: string
+  citiesSet: Set<String>
 
   assetsLink = `${environment.baseUrl}${ApiPaths.Assets}`
 
@@ -45,6 +46,10 @@ export class RealEstatesComponent implements OnInit {
     this.realEstateService.getAllProperties().subscribe((realEstates)=>{
       this.realEstates=realEstates
       this.realEstates = this.realEstates.map(property=> ({...property, randomImageLink: this.getRandomImageLink(property)}));
+      this.citiesSet = new Set()
+      this.realEstates.forEach(realEstate => {
+        this.citiesSet.add(realEstate.city)
+      });
     });
   }
 

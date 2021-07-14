@@ -20,21 +20,10 @@ export class UsersService {
     return this.http.post(url, data)
   }
 
-  addUser(data){
+  /*addUser(data){
     const url = `${this.baseUrl}${ApiPaths.User}/addUser`
     return this.http.post(url, data)
-  }
-
-  getUnapprovedUsers(){
-
-    const url = `${this.baseUrl}${ApiPaths.User}/getUnapprovedUsers`
-    return this.http.get(url)
-  }
-  getApprovedUsers(){
-
-    const url = `${this.baseUrl}${ApiPaths.User}/getApprovedUsers`
-    return this.http.get(url)
-  }
+  }*/
 
   approveUser(username){
     let data={
@@ -43,6 +32,7 @@ export class UsersService {
     const url = `${this.baseUrl}${ApiPaths.User}/approveUser`
     return this.http.post(url, data)
   }
+
   deleteUser(username){
     let data={
       username:username
@@ -50,8 +40,6 @@ export class UsersService {
     const url = `${this.baseUrl}${ApiPaths.User}/deleteUser`
     return this.http.post(url, data)
   }
-
-
 
   checkEmail(email:string){
     const data={
@@ -72,5 +60,45 @@ export class UsersService {
       map((result)=>result["message"]=="username ok"?true:false)
     )
   }
+
+  getUnapprovedUsers(){
+
+    const url = `${this.baseUrl}${ApiPaths.User}/getUnapprovedUsers`
+    return this.http.get(url)
+  }
+
+  getApprovedUsers(){
+
+    const url = `${this.baseUrl}${ApiPaths.User}/getApprovedUsers`
+    return this.http.get(url)
+  }
+
+  blockUser(blocker:string,user:string){
+    const data={
+      blocker:blocker,
+      user:user
+    }
+    const url = `${this.baseUrl}${ApiPaths.User}/blockUser`
+    return this.http.post(url, data)
+  }
+  unblockUser(blocker:string,user:string){
+    const data={
+      blocker:blocker,
+      user:user
+    }
+    const url = `${this.baseUrl}${ApiPaths.User}/unblockUser`
+    return this.http.post(url, data)
+  }
+
+  isBlockedCheck(user1:string, user2:string){
+    const data={
+      user1:user1,
+      user2:user2
+    }
+    const url = `${this.baseUrl}${ApiPaths.User}/isBlockedCheck`
+    return this.http.post(url,data)
+  }
+
+  
 
 }

@@ -1,9 +1,35 @@
-<div class="search">
-  <button mat-raised-button (click)="search()">Search</button>
-</div>
 
 <div class="promoted-properties">
+  
+</div>
+<div class="search">
+  <mat-expansion-panel [hideToggle]="true">
+      <mat-expansion-panel-header>
+          <mat-panel-title>Search parameters</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <mat-label>City</mat-label>
+        <mat-select [(ngModel)]="cityCheckString" placeholder="">
+            <mat-option *ngFor="let city of citiesSet" [value]="city">{{city}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Min price</mat-label>
+        <input matInput type="text" placeholder="Min price in €"  name="price" [(ngModel)]="minPriceString">
+        <p matSuffix>{{"€"}}</p>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Max price</mat-label>
+        <input matInput type="text" placeholder="Max price in €"  name="price" [(ngModel)]="maxPriceString">
+        <p matSuffix>{{"€"}}</p>
+      </mat-form-field>
 
+      <mat-action-row>
+        <button mat-button color="primary" (click)="search()">Search</button>
+      </mat-action-row>
+  </mat-expansion-panel>
 </div>
 <div class="unpromoted-properties">
   <div class="unpromoted-property" *ngFor="let property of realEstates">
