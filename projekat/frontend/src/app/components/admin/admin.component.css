@@ -1,0 +1,11 @@
+.addUserDiv{
+    display: flex;
+    justify-content: center;
+}
+.changeSettingsDiv{
+    display: flex;
+    justify-content: center;
+}
+.settings-form-field{
+    width: 100%;
+}

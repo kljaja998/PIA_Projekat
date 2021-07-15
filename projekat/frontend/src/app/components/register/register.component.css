@@ -1,0 +1,31 @@
+.register-div{
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+  }
+  
+.register-form{
+  min-width: 150px;
+  max-width: 350px;
+  width: 80%;
+}
+  
+.register-form-field{
+  width: 100%;
+}
+
+.register-form-field-password{
+  margin-bottom: 1rem;
+}
+
+
+.profile-file-input-label{
+  cursor: pointer;
+  display: block;
+}
+
+.profile-file-input-button{
+  pointer-events: none;
+  margin-bottom: 1rem;
+}
+  

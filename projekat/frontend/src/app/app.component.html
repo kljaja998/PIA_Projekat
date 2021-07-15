@@ -1,0 +1,35 @@
+<mat-menu #appMenu="matMenu">
+  <button *ngIf="isAdministrator" mat-menu-item routerLink="admin">Admin</button>
+  <button *ngIf="isEmployee" mat-menu-item routerLink="agent">Agent</button>
+  <button mat-menu-item routerLink="profile">Profile</button>
+  <button mat-menu-item (click)="logout();" routerLink="">Log out</button>
+</mat-menu>
+<mat-toolbar color="primary">
+  <span>
+    <button mat-button disableRipple routerLink="">
+      <mat-icon class="mat-18">home</mat-icon>
+      Agencija
+    </button>
+  </span>
+  <span class="toolbar-spacer"></span>
+  <button *ngIf="loggedIn" mat-icon-button>
+    <mat-icon>question_answer</mat-icon>
+  </button>
+  <button *ngIf="loggedIn" mat-icon-button routerLink="add-property">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button *ngIf="loggedIn" mat-icon-button [mat-menu-trigger-for]="appMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <button class="raised-button" *ngIf="!loggedIn" 
+    mat-flat-button routerLink="login">
+    Log In
+  </button>
+  <button class="raised-button" *ngIf="!loggedIn" 
+    mat-flat-button routerLink="register">
+    Register
+  </button>
+</mat-toolbar>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

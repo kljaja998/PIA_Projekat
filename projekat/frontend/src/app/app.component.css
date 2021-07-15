@@ -1,0 +1,16 @@
+.toolbar-spacer{
+  flex: 1 1 auto;
+}
+
+.raised-button{
+  margin-right: 1rem;
+}
+
+/*mat-toolbar{
+  position: fixed;
+  top: 0;
+}
+
+.content{
+  margin-top: 64px;
+}*/
