@@ -29,6 +29,7 @@ export class RealEstatesController{
             isApproved: isApproved,
             isPromoted: false,
             views: 0
+        
         })
         newRealEstate.save().then((doc)=>{
             if(doc){

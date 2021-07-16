@@ -14,6 +14,7 @@ import realEstateRouter from './routes/realestate.routes';
 
 const app = express();
 const assetsDir = path.join(__dirname, "assets")
+console.log("assetsDir: "+assetsDir)
 app.use(cors())
 app.use(bodyParser.json())
 app.use("/assets", express.static(assetsDir))
