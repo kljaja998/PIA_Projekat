@@ -8,5 +8,6 @@ export enum RoutePaths{
     default = "",
     wildcard = "**",
     AddProperty = "add-property",
-    Property = "property"
+    Property = "property",
+    Offers = "offers"
 }

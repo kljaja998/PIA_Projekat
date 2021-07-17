@@ -5,4 +5,5 @@ export enum ApiPaths {
     Settings = "/settings",
     RealEstates = "/real-estate",
     Assets = "/assets",
+    Offers = "/offers"
 }

@@ -42,6 +42,7 @@ export class RealEstatesService {
   }
 
   getPropertyById(id){
+    console.log("getPropertyById:",id)
     return this.realEstates.find(x => x._id == id)
   }
 

@@ -12,6 +12,9 @@
     </button>
   </span>
   <span class="toolbar-spacer"></span>
+  <button *ngIf="loggedIn" mat-icon-button routerLink="offers">
+    <mat-icon>payments</mat-icon>
+  </button>
   <button *ngIf="loggedIn" mat-icon-button>
     <mat-icon>question_answer</mat-icon>
   </button>

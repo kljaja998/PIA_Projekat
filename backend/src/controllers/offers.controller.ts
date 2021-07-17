@@ -27,8 +27,8 @@ export class OffersController{
     }
 
     getOffersForProperty = (req:express.Request, res:express.Response)=>{
-        let id = req.body.id
-        Offer.find({property_id:id},(err,docs)=>{
+        let property_id = req.body.property_id
+        Offer.find({property_id:property_id},(err,docs)=>{
             if(err) console.log(err)
             else res.json(docs)
         })
@@ -44,22 +44,25 @@ export class OffersController{
     
     acceptOffer = (req:express.Request, res:express.Response)=>{
         let id = req.body.id
-        Offer.findOneAndUpdate(
+        let property_id = req.body.property_id
+        console.log('accept Offer:',id,property_id)
+        Offer.updateOne(
             {_id:id},
-            {$set:{status:"Accepted"}})
-            .lean()
-            .exec(
-                (err,doc)=>{
-                    if(err) console.log(err)
-                    else{
-                        let property_id = doc.property_id
-                        Offer.update(
-                            {$and:[{property_id:property_id},{_id:{$ne:id}}]},
-                            {$set:{status:"Rejected"}})
-                        res.json({message:"success"})
-                    }
-                }
-            )
+            {$set:{status:"Accepted"}},
+            (err)=>{
+                if(err)
+                    console.log(err)
+            }
+        )
+        Offer.updateMany(
+            {$and:[{_id:{$ne:id}},{property_id:property_id}]},
+            {$set:{status:"Rejected"}},
+            (err)=>{
+                if(err)
+                    console.log(err)
+            }
+        )
+        res.json({message:"success"})
     }
     
     rejectOffer = (req:express.Request, res:express.Response)=>{
@@ -76,7 +79,8 @@ export class OffersController{
     }
 
     getOffersByUser = (req:express.Request, res:express.Response)=>{
-        let user = req.body.id
+        let user = req.body.user
+        console.log("getOffersByUser",user)
         Offer.find(
             {user:user},
             (err,docs)=>{
@@ -87,7 +91,5 @@ export class OffersController{
             }
         )
     }
-
-    
 
 }

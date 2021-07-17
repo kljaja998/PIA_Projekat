@@ -29,8 +29,8 @@ class OffersController {
             });
         };
         this.getOffersForProperty = (req, res) => {
-            let id = req.body.id;
-            Offer_1.default.find({ property_id: id }, (err, docs) => {
+            let property_id = req.body.property_id;
+            Offer_1.default.find({ property_id: property_id }, (err, docs) => {
                 if (err)
                     console.log(err);
                 else
@@ -48,17 +48,17 @@ class OffersController {
         };
         this.acceptOffer = (req, res) => {
             let id = req.body.id;
-            Offer_1.default.findOneAndUpdate({ _id: id }, { $set: { status: "Accepted" } })
-                .lean()
-                .exec((err, doc) => {
+            let property_id = req.body.property_id;
+            console.log('accept Offer:', id, property_id);
+            Offer_1.default.updateOne({ _id: id }, { $set: { status: "Accepted" } }, (err) => {
                 if (err)
                     console.log(err);
-                else {
-                    let property_id = doc.property_id;
-                    Offer_1.default.update({ $and: [{ property_id: property_id }, { _id: { $ne: id } }] }, { $set: { status: "Rejected" } });
-                    res.json({ message: "success" });
-                }
             });
+            Offer_1.default.updateMany({ $and: [{ _id: { $ne: id } }, { property_id: property_id }] }, { $set: { status: "Rejected" } }, (err) => {
+                if (err)
+                    console.log(err);
+            });
+            res.json({ message: "success" });
         };
         this.rejectOffer = (req, res) => {
             let id = req.body.id;
@@ -70,7 +70,8 @@ class OffersController {
             });
         };
         this.getOffersByUser = (req, res) => {
-            let user = req.body.id;
+            let user = req.body.user;
+            console.log("getOffersByUser", user);
             Offer_1.default.find({ user: user }, (err, docs) => {
                 if (err)
                     console.log(err);

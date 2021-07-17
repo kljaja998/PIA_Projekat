@@ -36,6 +36,12 @@
         <p mat-line>Room number: {{property.room_no}}</p>
         <p mat-line>For {{property.sale}}</p>
         <p mat-line>Price: {{property.price}} + </p>
+        <div *ngIf="!isOwner()">
+            <mat-form-field>
+                <input matInput type="number" placeholder="Offer for the owner" [(ngModel)]="ammount">
+            </mat-form-field>
+            <button mat-button (click)="sendOffer()">Send Offer</button>
+        </div>
     </mat-card-content>
     
 </mat-card>

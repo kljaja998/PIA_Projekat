@@ -55,6 +55,22 @@ export class AuthGuard implements CanActivate {
                     return false
                 }
             }
+            case RoutePaths.Offers:{
+                if(this.authService.loggedin$.value){
+                    return true
+                } else{
+                    this.router.navigate([RoutePaths.Error])
+                    return false
+                }
+            }
+            case RoutePaths.Property:{
+                if(this.authService.loggedin$.value){
+                    return true
+                } else{
+                    this.router.navigate([RoutePaths.Error])
+                    return false
+                }
+            }
             default:
                 return true;
 

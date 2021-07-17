@@ -9,6 +9,7 @@ import userRouter from './routes/user.routes';
 import fileUpload from 'express-fileupload';
 import settingsRouter from './routes/settings.routes';
 import realEstateRouter from './routes/realestate.routes';
+import offersRouter from './routes/offers.routes';
 
 
 
@@ -36,6 +37,7 @@ router.use('/auth', authRouter);
 router.use('/user', userRouter)
 router.use('/settings', settingsRouter)
 router.use('/real-estate', realEstateRouter)
+router.use('/offers', offersRouter)
 
 
 app.use('/',router)

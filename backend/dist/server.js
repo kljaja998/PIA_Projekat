@@ -14,6 +14,7 @@ const user_routes_1 = __importDefault(require("./routes/user.routes"));
 const express_fileupload_1 = __importDefault(require("express-fileupload"));
 const settings_routes_1 = __importDefault(require("./routes/settings.routes"));
 const realestate_routes_1 = __importDefault(require("./routes/realestate.routes"));
+const offers_routes_1 = __importDefault(require("./routes/offers.routes"));
 const app = express_1.default();
 const assetsDir = path_1.default.join(__dirname, "assets");
 console.log("assetsDir: " + assetsDir);
@@ -33,6 +34,7 @@ router.use('/auth', auth_routes_1.default);
 router.use('/user', user_routes_1.default);
 router.use('/settings', settings_routes_1.default);
 router.use('/real-estate', realestate_routes_1.default);
+router.use('/offers', offers_routes_1.default);
 app.use('/', router);
 app.listen(environment_1.environment.port, () => console.log(`Express server running on port ${environment_1.environment.port}`));
 //# sourceMappingURL=server.js.map

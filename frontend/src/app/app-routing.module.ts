@@ -11,6 +11,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddPropertyComponent } from './components/add-property/add-property.component';
 import { PropertyComponent } from './components/property/property.component';
+import { OffersComponent } from './components/offers/offers.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path : RoutePaths.Register, component: RegisterComponent},
   {path : RoutePaths.AddProperty, component: AddPropertyComponent, canActivate:[AuthGuard]},
   {path : `${RoutePaths.Property}/:id`, component: PropertyComponent, canActivate:[AuthGuard]},
+  {path : RoutePaths.Offers, component : OffersComponent, canActivate:[AuthGuard]},
   {path : RoutePaths.default, component : RealEstatesComponent},
   {path : RoutePaths.wildcard ,component : ErrorComponent},
 ];

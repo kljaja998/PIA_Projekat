@@ -15,6 +15,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddPropertyComponent } from './components/add-property/add-property.component';
 import { PropertyComponent } from './components/property/property.component';
+import { OffersComponent } from './components/offers/offers.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PropertyComponent } from './components/property/property.component';
     ErrorComponent,
     ProfileComponent,
     AddPropertyComponent,
-    PropertyComponent
+    PropertyComponent,
+    OffersComponent
   ],
   imports: [
     BrowserModule,

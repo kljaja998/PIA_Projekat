@@ -1,0 +1,38 @@
+<div class="myOffers">
+    <mat-list>
+        <div mat-subheader>My Offers</div>
+        <mat-list-item *ngFor="let offer of myOffers; let lastItem = last;">
+            <mat-icon matListIcon>{{slike.get(offer.status)}}</mat-icon>
+            <h1 mat-line>Property name: {{getPropertyName(offer.property_id)}}</h1>
+            <p mat-line>Offer ammount: {{offer.ammount}}€</p>
+            <p mat-line>Offer status: {{offer.status}}</p>
+            <!--<button mat-icon-button (click)="approveUser(user)">
+                <mat-icon class="mat-24">done</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteUser(user)">
+                <mat-icon class="mat-24">cancel</mat-icon>
+            </button>-->
+            <mat-divider *ngIf="!lastItem"></mat-divider>
+        </mat-list-item>
+    </mat-list>
+</div>
+<div class="offersForMyProperties">
+    <mat-list>
+        <div mat-subheader>Offers for my Properties</div>
+        <mat-list-item *ngFor="let offer of offersForMe; let lastItem = last;">
+            <mat-icon matListIcon>{{slike.get(offer.status)}}</mat-icon>
+            <h1 mat-line>Property name: {{getPropertyName(offer.property_id)}}</h1>
+            <p mat-line>Offer ammount: {{offer.ammount}}€</p>
+            <p mat-line>Offer status: {{offer.status}}</p>
+            <div *ngIf="offer.status=='Pending'">
+                <button mat-icon-button (click)="acceptOffer(offer._id,offer.property_id)">
+                    <mat-icon class="mat-24">done</mat-icon>
+                </button>
+                <button mat-icon-button (click)="rejectOffer(offer._id)">
+                    <mat-icon class="mat-24">cancel</mat-icon>
+                </button>
+            </div>
+            <mat-divider *ngIf="!lastItem"></mat-divider>
+        </mat-list-item>
+    </mat-list>
+</div>
