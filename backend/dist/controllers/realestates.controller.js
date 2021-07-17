@@ -114,8 +114,12 @@ class RealEstatesController {
             res.json({ message: "success" });
         };
         this.incrementViews = (req, res) => {
+            //console.log("incrementViews")
             let id = req.body.id;
-            RealEstate_1.default.collection.updateOne({ '_id': mongoose_1.Types.ObjectId(id) }, { $inc: { "views": 1 } });
+            //console.log("incrementViews: ",id)
+            RealEstate_1.default.
+                collection.
+                updateOne({ '_id': mongoose_1.Types.ObjectId(id) }, { $inc: { "views": 1 } });
             res.json({ message: "success" });
         };
     }

@@ -37,7 +37,7 @@ realEstateRouter.route('/addRealEstate').post(
 )
 
 realEstateRouter.route('/incrementViews').post(
-    (req,res)=> new RealEstatesController().addRealEstate(req, res)
+    (req,res)=> new RealEstatesController().incrementViews(req, res)
 )
 
 export default realEstateRouter;

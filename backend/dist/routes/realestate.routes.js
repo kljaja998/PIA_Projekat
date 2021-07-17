@@ -14,6 +14,6 @@ realEstateRouter.route('/approveRealEstate').post((req, res) => new realestates_
 realEstateRouter.route('/promoteRealEstate').post((req, res) => new realestates_controller_1.RealEstatesController().promoteRealEstate(req, res));
 realEstateRouter.route('/unpromoteRealEstate').post((req, res) => new realestates_controller_1.RealEstatesController().unpromoteRealEstate(req, res));
 realEstateRouter.route('/addRealEstate').post((req, res) => new realestates_controller_1.RealEstatesController().addRealEstate(req, res));
-realEstateRouter.route('/incrementViews').post((req, res) => new realestates_controller_1.RealEstatesController().addRealEstate(req, res));
+realEstateRouter.route('/incrementViews').post((req, res) => new realestates_controller_1.RealEstatesController().incrementViews(req, res));
 exports.default = realEstateRouter;
 //# sourceMappingURL=realestate.routes.js.map

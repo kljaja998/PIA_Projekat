@@ -89,10 +89,15 @@ export class RealEstatesService {
   }
   
   incrementViews(id){
+    //console.log('service incrementViews:',id)
     const data ={
       id:id
     }
     const url = `${this.uri}/incrementViews`
-    return this.http.post(url,data)
+    return this.http.post(url,data).subscribe(
+      (res)=>{
+        console.log(res)
+      }
+    )
   }
 }

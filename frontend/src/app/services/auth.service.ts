@@ -66,6 +66,7 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem("user")
+    localStorage.removeItem("visited")
     localStorage.setItem("loggedin","false");
     this.loggedin$.next(false);
     this.user$.next(null);

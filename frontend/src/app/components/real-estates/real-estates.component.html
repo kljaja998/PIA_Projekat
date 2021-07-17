@@ -11,8 +11,9 @@
           <p mat-line>Category: {{property.category}}</p>
           <p mat-line>Room no: {{property.room_no}}</p>
           <p mat-line>Area: {{property.area+"m\u00B2"}}</p>
+          <p mat-line *ngIf="isAdmin()">Views: {{property.views}}</p>
         </mat-card-content>
-        <mat-card-actions align="start">
+        <mat-card-actions align="start" *ngIf="isLoggedIn()">
             <button mat-button (click)="goToProperty(property._id)">View details</button>
         </mat-card-actions>
     </mat-card>
@@ -61,8 +62,9 @@
           <p mat-line>Category: {{property.category}}</p>
           <p mat-line>Room number: {{property.room_no}}</p>
           <p mat-line>Area: {{property.area+"m\u00B2"}}</p>
+          <p mat-line *ngIf="isAdmin()">Views: {{property.views}}</p>
         </mat-card-content>
-        <mat-card-actions align="start">
+        <mat-card-actions align="start" *ngIf="isLoggedIn()">
             <button mat-button (click)="goToProperty(property._id)">Pogledaj detalje</button>
         </mat-card-actions>
     </mat-card>

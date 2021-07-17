@@ -119,9 +119,14 @@ export class RealEstatesController{
     }
 
     incrementViews = (req:express.Request,res:express.Response)=>{
+        //console.log("incrementViews")
         let id = req.body.id
-        RealEstate.collection.updateOne({'_id':Types.ObjectId(id)},
-        {$inc:{"views":1}})
+        //console.log("incrementViews: ",id)
+        RealEstate.
+            collection.
+            updateOne(
+                {'_id':Types.ObjectId(id)},
+                {$inc:{"views":1}})
         res.json({message:"success"})
     }
 }

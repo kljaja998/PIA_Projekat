@@ -6,6 +6,7 @@ import { RoutePaths } from 'src/app/enums/route-paths';
 import { environment } from 'src/environments/environment';
 import { ApiPaths } from 'src/app/enums/api-paths';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class RealEstatesComponent implements OnInit {
 
   constructor(private realEstateService:RealEstatesService,
               private router: Router,
-              private fb: FormBuilder) {  }
+              private fb: FormBuilder,
+              private authService: AuthService) {  }
 
   searchForm = this.fb.group({
     city: [""],
@@ -63,6 +65,13 @@ export class RealEstatesComponent implements OnInit {
     });
   }
 
+  isAdmin(){
+    return this.authService.isAdmin()
+  }
+
+  isLoggedIn(){
+    return this.authService.loggedin$.value
+  }
   
 
   search(){
